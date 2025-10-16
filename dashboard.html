@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nutrition Workshop</title>
+</head>
+<body>
+  <h1>Nutrition Workshop Dashboard</h1>
+  <button onclick="window.location.reload()">Refresh</button>
+  <div>
+    <h2>Add Participant</h2>
+    <input id="pname" placeholder="Name">
+    <select id="pgender"><option>male</option><option>female</option><option>other</option></select>
+    <button onclick="addParticipant()">Add</button>
+    <pre id="plist"></pre>
+  </div>
+  <div>
+    <h2>Add Food</h2>
+    <input id="fname" placeholder="Food name">
+    <input id="fcal" placeholder="Calories per 100g">
+    <button onclick="addFood()">Add</button>
+    <pre id="flist"></pre>
+  </div>
+<script>
+async function refresh() {
+  let pres = await fetch('/participants'); pres = await pres.json();
+  document.getElementById('plist').textContent = JSON.stringify(pres, null, 2);
+  let fres = await fetch('/food_items'); fres = await fres.json();
+  document.getElementById('flist').textContent = JSON.stringify(fres, null, 2);
+}
+refresh();
+
+async function addParticipant() {
+  await fetch('/participants', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      name: document.getElementById('pname').value,
+      gender: document.getElementById('pgender').value
+    })
+  });
+  refresh();
+}
+async function addFood() {
+  await fetch('/food_items', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      name: document.getElementById('fname').value,
+      calories_per_100g: Number(document.getElementById('fcal').value)
+    })
+  });
+  refresh();
+}
+</script>
+</body>
+</html>

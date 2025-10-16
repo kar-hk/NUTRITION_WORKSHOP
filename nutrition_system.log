@@ -1,0 +1,35 @@
+2025-10-14 21:45:44,520 - ERROR - Error while connecting to MySQL: 1045 (28000): Access denied for user 'hani'@'localhost' (using password: YES)
+2025-10-14 21:45:44,521 - ERROR - Failed to connect to database
+2025-10-14 21:46:31,942 - ERROR - Error while connecting to MySQL: 1045 (28000): Access denied for user 'hani'@'localhost' (using password: YES)
+2025-10-14 21:46:31,943 - ERROR - Failed to connect to database
+2025-10-14 21:47:09,569 - INFO - Connected to MySQL Server version 9.4.0
+2025-10-14 21:47:10,260 - INFO - Table 'participants' created successfully
+2025-10-14 21:47:10,542 - INFO - Table 'food_items' created successfully
+2025-10-14 21:47:11,226 - INFO - Table 'nutrition_plans' created successfully
+2025-10-14 21:47:11,497 - INFO - Table 'meal_plans' created successfully
+2025-10-14 21:47:12,205 - INFO - Table 'meal_plan_foods' created successfully
+2025-10-14 21:47:12,954 - INFO - Table 'food_log' created successfully
+2025-10-14 21:47:13,351 - INFO - Table 'workshops' created successfully
+2025-10-14 21:47:13,784 - INFO - Table 'workshop_participants' created successfully
+2025-10-14 21:47:13,786 - INFO - Database and tables created successfully
+2025-10-14 21:47:13,925 - INFO - Food item 'Apple' added successfully
+2025-10-14 21:47:13,937 - INFO - Food item 'Banana' added successfully
+2025-10-14 21:47:13,945 - INFO - Food item 'Chicken Breast' added successfully
+2025-10-14 21:47:13,953 - INFO - Food item 'Brown Rice' added successfully
+2025-10-14 21:47:13,961 - INFO - Food item 'Broccoli' added successfully
+2025-10-14 21:47:13,969 - INFO - Food item 'Greek Yogurt' added successfully
+2025-10-14 21:47:13,978 - INFO - Food item 'Almonds' added successfully
+2025-10-14 21:47:13,985 - INFO - Food item 'Salmon' added successfully
+2025-10-14 21:47:13,995 - INFO - Food item 'Quinoa' added successfully
+2025-10-14 21:47:14,002 - INFO - Food item 'Spinach' added successfully
+2025-10-14 21:47:14,015 - INFO - Participant John Doe added successfully
+2025-10-14 21:47:14,023 - INFO - Participant Jane Smith added successfully
+2025-10-14 21:47:14,030 - INFO - Participant Mike Johnson added successfully
+2025-10-14 21:47:14,039 - INFO - Workshop 'Introduction to Nutrition' created successfully
+2025-10-14 21:47:14,049 - INFO - Workshop 'Meal Planning for Weight Loss' created successfully
+2025-10-14 21:47:14,056 - INFO - Workshop 'Sports Nutrition Workshop' created successfully
+2025-10-14 21:47:14,056 - INFO - Nutrition Workshop Management System initialized successfully
+2025-10-14 21:48:12,861 - INFO - Participant HANISHKAR SENTHILKUMAR added successfully
+2025-10-14 21:48:29,507 - ERROR - Unexpected error in interactive mode: 'NutritionWorkshopSystem' object has no attribute '_reports_menu'
+2025-10-14 21:48:29,508 - INFO - MySQL connection is closed
+2025-10-14 21:48:29,508 - INFO - Nutrition Workshop Management System shutdown complete

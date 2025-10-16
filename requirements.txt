@@ -1,0 +1,12 @@
+Flask>=2.0
+SQLAlchemy>=1.4
+mysql-connector-python>=8.0
+alembic>=1.8
+click
+pydantic
+fastapi
+uvicorn[standard]
+aiomysql
+pytest
+python-dotenv
+requests

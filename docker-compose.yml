@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: nutrition_workshop
+      MYSQL_USER: workshop
+      MYSQL_PASSWORD: workshop_pass
+    ports:
+      - '3306:3306'
+    volumes:
+      - db-data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  db-data:
