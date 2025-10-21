@@ -244,6 +244,19 @@
             font-size: 1.1rem;
         }
 
+        /* Accessible visually-hidden utility for screen-reader-only labels */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
         @media (max-width: 768px) {
             .dashboard-grid {
                 grid-template-columns: 1fr;
@@ -337,17 +350,18 @@
             <div id="logSuccess" class="success-message"></div>
             
             <div class="form-row">
-                <input type="number" id="logPartId" placeholder="Participant ID">
-                <input type="number" id="logFoodId" placeholder="Food Item ID">
-                <input type="number" id="logQty" placeholder="Quantity (grams)">
-                <select id="logMeal">
-                    <option value="">Select Meal Type</option>
-                    <option value="breakfast">🌅 Breakfast</option>
-                    <option value="lunch">☀️ Lunch</option>
-                    <option value="dinner">🌙 Dinner</option>
-                    <option value="snack">🍿 Snack</option>
-                </select>
-            </div>
+                <label for="logMeal" class="sr-only">Meal type</label>
+                 <input type="number" id="logPartId" placeholder="Participant ID">
+                 <input type="number" id="logFoodId" placeholder="Food Item ID">
+                 <input type="number" id="logQty" placeholder="Quantity (grams)">
+                 <select id="logMeal" aria-label="Meal type">
+                     <option value="">Select Meal Type</option>
+                     <option value="breakfast">🌅 Breakfast</option>
+                     <option value="lunch">☀️ Lunch</option>
+                     <option value="dinner">🌙 Dinner</option>
+                     <option value="snack">🍿 Snack</option>
+                 </select>
+             </div>
             <button class="btn-success" onclick="logFood()">📝 Log Food Entry</button>
         </div>
     </div>
