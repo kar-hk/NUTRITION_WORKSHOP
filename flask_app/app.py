@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_app.db import engine, Base, SessionLocal
 import shared.models as models
 from datetime import datetime, date
+from sqlalchemy import func
 
 app = Flask(__name__)
 CORS(app)
@@ -194,6 +195,28 @@ def add_food(pid: int):
         raise
     finally:
         db.close()
+
+# NEW: Calories-per-participant report endpoint
+@app.get("/reports/total_calories_today")
+def report_total_calories_today():
+    db = SessionLocal()
+    today = date.today()
+    results = db.query(
+        models.Participant.id,
+        models.Participant.name,
+        func.sum(models.FoodLog.calories)
+    ).join(models.FoodLog, models.Participant.id == models.FoodLog.participant_id) \
+     .filter(models.FoodLog.date == today) \
+     .group_by(models.Participant.id, models.Participant.name).all()
+    db.close()
+    out = []
+    for pid, pname, calories in results:
+        out.append({
+            "participant_id": pid,
+            "name": pname,
+            "total_calories": calories or 0
+        })
+    return jsonify(out)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
